@@ -1,0 +1,63 @@
+﻿
+@{
+    ViewBag.Title = "lienhead";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+<link href="~/Content/Minhdeptrai.css" rel="stylesheet" />
+<br />
+
+<div class="carousel-inner">
+    <div class="item active">
+        <img class="slide-image" src="~/HinhAnhMTN/hotrokhachhang.jpg" alt="">
+    </div>
+</div>
+<div class="testimonial">
+    <div class="small-container">
+        <div class="row">
+            <div class="col-3">
+                <i class="fa fa-quote-left"></i>
+                <h2>Thông tin liên hệ</h2>
+                <p>
+                    <a href="@Url.Action("googlemap","Lienhe")" class="btn btn-info btn-lg">
+                        <span class="glyphicon glyphicon-home"></span> Home
+                    </a>
+                </p>
+            </div>
+            <div class="col-3">
+                <i class="fa fa-quote-left"></i>
+                <h3>Email cho chúng tôi</h3>
+                <p>
+                    <a href="@Url.Action("quamail","Lienhe")" class="btn btn-info btn-lg">
+                        <span class="glyphicon glyphicon-envelope"></span> Envelope
+                    </a>
+                </p>
+            </div>
+            <div class="col-3">
+                <i class="fa fa-quote-left"></i>
+                <h3>Hỗ trợ trực tuyến</h3>
+                <p>
+                    <a href="@Url.Action("hotro","Lienhe")" class="btn btn-info btn-lg">
+                        <span class="glyphicon glyphicon-phone-alt"></span> Phone
+                    </a>
+                </p>
+
+            </div>
+        </div>
+    </div>
+</div>
+<h1 class="content" style="color:red">Tải ứng dụng</h1>
+<div class="row">
+    <div class="col-md-5">
+        <img class="img-responsive img-responsive; text-center" src="~/HinhAnhMTN/play-store.png" />
+    </div>
+    <div class="col-md-4">
+        <img src="~/HinhAnhMTN/app-store.png" class="img-responsive" alt="" />
+    </div>
+</div>
+
+
+
+
+
+
+

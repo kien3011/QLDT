@@ -1,0 +1,158 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Điện thoại rẻ Long An</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link rel="stylesheet" href="~/Content/bootstrap.min.css" />
+    <link rel=" stylesheet" href="~/Content/Style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+    <script src="~/Scripts/jquery-3.4.1.js"></script>
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <link href="~/Content/style.css" rel="stylesheet" />
+    @using MTN.Models;
+</head>
+
+<body>
+
+    @{
+        var u = Session["use"] as MTN.Models.Nguoidung;
+    }
+
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="top_header col-md-12">
+            <div class="row">
+                
+                <div class="col-sm-6 " style="font-size:large">THEGIOISO</div>
+                <div class="col-sm-3 " style="padding-left:250px">
+                    @Html.Action("GioHangPartial", "GioHang", new { @class = "giohang" })
+                </div>
+              
+                @{
+                    if (u != null)
+                    {
+                                <div class="text-right: 0;">
+                                    Xin chào : @u.Email
+                                    &nbsp;
+                                    <a style="color:red" href="/Nguoidung/DangXuat"> ĐĂNG XUẤT</a>
+
+                                </div>
+                    }
+                    else
+                    {
+                        <div class="text-right: 0;">
+                            <a style="color:white"href="@Url.Action("Dangky","Nguoidung")"> ĐĂNG KÝ</a>
+                            &nbsp;
+                            <a style="color:white" href="@Url.Action("Dangnhap","Nguoidung")">ĐĂNG NHẬP</a>
+                        </div>
+                    }
+                }
+            </div>
+
+        </div>
+        <div class="container">
+
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <img class="navbar-brand" src="~/HinhAnhMTN/logohieu-111.png" width="40" height="50" style="padding:0" />
+                @Html.ActionLink("THẾ GIỚI SỐ ", "Index", "PhoneStore", new { area = "" }, new { @class = "navbar-brand" })
+                <form class="form-inline" style="float:left">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Tìm kiếm sản phẩm..." aria-label="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Tìm Kiếm</button>
+                </form>
+
+            </div>
+
+            <div class="navbar-collapse collapse">
+
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="@Url.Action("Phone","DienThoai")"><i class="glyphicon glyphicon-phone "></i>ĐIỆN THOẠI</a>    
+                    </li>
+                    <li>
+                        <a href="@Url.Action("Laptop","DienThoai")"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="18" fill="currentColor" class="bi bi-tv" viewBox="0 0 16 16">
+    <path d="M2.5 13.5A.5.5 0 0 1 3 13h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zM13.991 3l.024.001a1.46 1.46 0 0 1 .538.143.757.757 0 0 1 .302.254c.067.1.145.277.145.602v5.991l-.001.024a1.464 1.464 0 0 1-.143.538.758.758 0 0 1-.254.302c-.1.067-.277.145-.602.145H2.009l-.024-.001a1.464 1.464 0 0 1-.538-.143.758.758 0 0 1-.302-.254C1.078 10.502 1 10.325 1 10V4.009l.001-.024a1.46 1.46 0 0 1 .143-.538.758.758 0 0 1 .254-.302C1.498 3.078 1.675 3 2 3h11.991zM14 2H2C0 2 0 4 0 4v6c0 2 2 2 2 2h12c2 0 2-2 2-2V4c0-2-2-2-2-2z" />
+</svg><i class="bi bi-tv"></i>LAPTOP</a>
+                       
+                    </li>
+
+                    <li>
+                        <a href="@Url.Action("PhuKienpartial","Phukien")"><i class="glyphicon glyphicon-headphones "></i>PHỤ KIỆN</a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("lienhead","Lienhe")"><i class="glyphicon glyphicon-headphones "></i>LIÊN HỆ</a>
+                    </li>
+
+                    <li>
+                        <a href="@Url.Action("Thongtinweb","Thongtin")"><i class="glyphicon glyphicon-edit"></i>THÔNG TIN</a>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+     <br>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <div>
+            <img class="img-responsive" src="~/HinhAnhMTN/ban2.jpg" />
+        </div>
+        <br />
+    </div>
+    <footer class="bg-info" style="padding-left:50px">
+        <div class="row">
+            <div class="col-md-3 col-sm-6">
+                <h2>Bảo hành</h2>
+                <span>Chính sách mua hàng</span>
+                <br />
+                <span>Chính sách bảo hành</span>
+                <br />
+                <span>Trung tâm bảo hành</span>
+                <br />
+                <span>Tra cứu bảo hành</span>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <h2>Liên kết</h2>
+                <span>Tin tức Mobile</span>
+                <br />
+                <span>Lập trình Web</span>
+                <br />
+                <span>Minhphamooo</span>
+                <br />
+                <span>Dân trí</span>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <h2>Thông tin</h2>
+                <span>Về chúng tôi</span>
+                <br />
+                <a href="@Url.Action("lienhead","Lienhe") ">Liên hệ</a>
+                <br />
+                <span>Góp ý</span>
+                <br />
+                <span>Tra cứu</span>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <h2>Theo dõi</h2>
+                <p><a href="https://www.youtube.com/channel/UCTYLiWFZy8xtPwxFwX9rV7Q">Kênh youtube</a></p>
+                <p><a href="http://daotao.hutech.edu.vn/default.aspx?page=gioithieu">Fanpage</a></p>
+                <p><a href="https://shopee.vn/?__hybrid_pc__=1&stm_referrer=https%3A%2F%2Fvn.search.yahoo.com%2F">Shopee</a></p>
+                <p><a href="https://www.facebook.com/groups/682528162083716">Group</a></p>
+            </div>
+        </div>
+        <hr />
+        <center> <p class="bg-primary">&copy; @DateTime.Now.Year - THẾ GIỚI SỐ </p></center>
+    </footer>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
